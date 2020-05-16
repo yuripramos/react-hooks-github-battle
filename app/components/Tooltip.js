@@ -23,9 +23,9 @@ const styles = {
     fontSize: '14px',
   }
 }
-
-export default function Tooltip({ text, children }) {
+function Tooltip({ text, children }) {
   const [hovering, attrs] = useHover();
+  console.log("RE_RENDER TOOLTIP");
   return (
     <div style={styles.container} {...attrs}>
       {hovering === true && <div style={styles.tooltip}>{text}</div>}
@@ -37,3 +37,5 @@ export default function Tooltip({ text, children }) {
 Tooltip.propTypes = {
   text: PropTypes.string.isRequired,
 }
+
+export default React.memo(Tooltip);

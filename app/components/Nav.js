@@ -6,8 +6,9 @@ const activeStyle = {
   color: 'rgb(187, 46, 31)'
 }
 
-export default function Nav({ toggleTheme }) {
+function Nav({ toggleTheme }) {
   const theme = useContext(themeContext);
+  console.log("RE_RENDER NAV");
   return (
     <nav className='row space-between'>
       <ul className='row nav'>
@@ -39,3 +40,5 @@ export default function Nav({ toggleTheme }) {
     </nav>
   )
 }
+
+export default React.memo(Nav);
