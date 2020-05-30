@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "NODE_ENV='production' webpack",
-    "build-for-windows": "SET NODE_ENV='production' && webpack"
+    "build-for-windows": "SET NODE_ENV='production' && webpack",
+    "test": "jest"
   },
   "babel": {
     "presets": [
@@ -34,6 +35,10 @@
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "@testing-library/jest-dom": "^5.5.0",
+    "@testing-library/react": "^10.0.2",
+    "babel-jest": "^25.1.0",
+    "identity-obj-proxy": "^3.0.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "copy-webpack-plugin": "^5.0.3",
@@ -43,5 +48,36 @@
     "webpack": "^4.36.1",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2"
+  },
+  "jest": {
+    "verbose": false,
+    "testURL": "http://localhost/",
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less|scss)$": "identity-obj-proxy"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/",
+      "/my-custom-transform/"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "app/**/*.{js, ts,tsx, jsx}"
+    ],
+    "reporters": [
+      "default"
+    ],
+    "transform": {
+      "\\.jsx?$": "babel-jest",
+      "\\.(css|less|scss)$": "identity-obj-proxy"
+    },
+    "coverageThreshold": {
+      "global": {
+        "branches": 70,
+        "functions": 70,
+        "lines": 70,
+        "statements": 70
+      }
+    }
   }
 }
