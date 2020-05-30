@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useReducer } from 'react'
+import React, { useState, useEffect, useRef, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { fetchPopularRepos } from '../utils/api'
 import { FaUser, FaStar, FaCodeBranch, FaExclamationTriangle } from 'react-icons/fa'
@@ -98,9 +98,8 @@ export default function Popular() {
   }, [state, selectedLanguage])
 
   const isLoading = () => !state[selectedLanguage] && state.error === null;
-  console.log('state', state);
   return (
-    <React.Fragment>
+    <Fragment>
       <LanguagesNav
         selected={selectedLanguage}
         onUpdateLanguage={(language) => setSelectedLanguage(language)}
@@ -108,9 +107,9 @@ export default function Popular() {
 
       {isLoading() && <Loading text='Fetching Repos' />}
 
-      {state.error && <p className='center-text error'>{error}</p>}
+      {state.error && <p className='center-text error'>{state.error}</p>}
 
       {state[selectedLanguage] && <ReposGrid repos={state[selectedLanguage]} />}
-    </React.Fragment>
+    </Fragment>
   )
 }
