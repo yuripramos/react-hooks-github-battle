@@ -7,7 +7,7 @@ import Loading from './Loading'
 import Tooltip from './Tooltip'
 import { usePopularReducer } from '../reducer/popular';
 
-function LanguagesNav({ selected, onUpdateLanguage }) {
+export function LanguagesNav({ selected, onUpdateLanguage }) {
   const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python']
 
   return (
@@ -31,7 +31,7 @@ LanguagesNav.propTypes = {
   onUpdateLanguage: PropTypes.func.isRequired
 }
 
-function ReposGrid({ repos }) {
+export function ReposGrid({ repos }) {
   return (
     <ul className='grid space-around'>
       {repos.map((repo, index) => {

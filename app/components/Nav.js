@@ -8,7 +8,6 @@ const activeStyle = {
 
 function Nav({ toggleTheme }) {
   const theme = useContext(themeContext);
-  console.log("RE_RENDER NAV");
   return (
     <nav className='row space-between'>
       <ul className='row nav'>
