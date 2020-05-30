@@ -25,7 +25,6 @@ const styles = {
 }
 function Tooltip({ text, children }) {
   const [hovering, attrs] = useHover();
-  console.log("RE_RENDER TOOLTIP");
   return (
     <div style={styles.container} {...attrs}>
       {hovering === true && <div style={styles.tooltip}>{text}</div>}

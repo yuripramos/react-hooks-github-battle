@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { themeContext } from '../contexts/theme'
 import { Link } from 'react-router-dom'
 
-function Instructions() {
+export function Instructions() {
   const theme = useContext(themeContext);
   return (
     <div className='instructions-container'>
@@ -30,7 +30,7 @@ function Instructions() {
   )
 }
 
-const PlayerInput = ({ onSubmit, label }) => {
+export const PlayerInput = ({ onSubmit, label }) => {
   const [username, setUsername] = useState('');
   const theme = useContext(themeContext);
 
@@ -74,7 +74,7 @@ PlayerInput.propTypes = {
   label: PropTypes.string.isRequired
 }
 
-function PlayerPreview({ username, onReset, label }) {
+export function PlayerPreview({ username, onReset, label }) {
   const theme = useContext(themeContext);
   return (
     <div className='column player'>

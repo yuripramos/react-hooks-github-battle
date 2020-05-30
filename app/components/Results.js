@@ -9,7 +9,7 @@ import queryString from 'query-string'
 import { Link } from 'react-router-dom'
 import { useResultReducer } from '../reducer/results';
 
-function ProfileList({ profile }) {
+export function ProfileList({ profile }) {
   return (
     <ul className='card-list'>
       <li>
