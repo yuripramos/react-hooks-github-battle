@@ -5,6 +5,7 @@ import { FaUser, FaStar, FaCodeBranch, FaExclamationTriangle } from 'react-icons
 import Card from './Card'
 import Loading from './Loading'
 import Tooltip from './Tooltip'
+import { usePopularReducer } from '../reducer/popular';
 
 function LanguagesNav({ selected, onUpdateLanguage }) {
   const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python']
@@ -79,44 +80,25 @@ ReposGrid.propTypes = {
   repos: PropTypes.array.isRequired
 }
 
-function popularReducer(state, action) {
-  switch (action.type) {
-    case 'success':
-      return {
-        ...state,
-        [action.selectedLanguage]: action.repos,
-        error: null
-      }
-    case 'error':
-      return {
-        ...state,
-        error: action.error.message
-      }
-    default:
-      return state;
-  }
-}
 export default function Popular() {
   const [selectedLanguage, setSelectedLanguage] = useState('All')
-  const [state, dispatch] = useReducer(
-    popularReducer,
-    { error: null }
-  )
+  const { popularReducer: state, setSuccessFetchItems, setErrorFetchItems } = usePopularReducer();
 
   const fetchedLanguages = useRef([]);
 
   useEffect(() => {
+
     if (fetchedLanguages.current.includes(selectedLanguage) === false) {
       fetchedLanguages.current.push(selectedLanguage);
 
       fetchPopularRepos(selectedLanguage)
-        .then((repos) => dispatch({ type: 'success', selectedLanguage, repos }))
-        .catch(e => dispatch({ type: 'error', error }))
+        .then((repos) => setSuccessFetchItems(selectedLanguage, repos))
+        .catch(e => setErrorFetchItems(e))
     }
   }, [state, selectedLanguage])
 
   const isLoading = () => !state[selectedLanguage] && state.error === null;
-
+  console.log('state', state);
   return (
     <React.Fragment>
       <LanguagesNav
