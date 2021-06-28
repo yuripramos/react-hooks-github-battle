@@ -9,3 +9,7 @@ This project is a "Github Battle" app. You'll be able to see the most popular re
 |                                                                     Light Mode                                                                     |                                                                     Dark Mode                                                                      |
 | :------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------: |
 | ![](https://i.ibb.co/m6Dy63z/battle-1-white.png) ![](https://i.ibb.co/S6rL83K/battle-2-white.png) ![](https://i.ibb.co/DMbg0WH/battle-3-white.png) | ![](https://i.ibb.co/gzgzfgs/battle-1-black.png) ![](https://i.ibb.co/K7wp4Yd/battle-2-black.png) ![](https://i.ibb.co/pr90VgS/battle-3-black.png) |
+
+### Run the project
+
+`yarn && yarn start`
