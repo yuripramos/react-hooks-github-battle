@@ -1,6 +1,9 @@
-import React from 'react';
-import { render, cleanup } from '@testing-library/react';
-import Battle, { Instructions, PlayerInput, PlayerPreview } from '../Battle';
+import React from "react";
+import { render, cleanup } from "@testing-library/react";
+import Battle from "../Battle";
+import Instructions from "../Battle/Instructions";
+import PlayerInput from "../Battle/PlayerInput";
+import PlayerPreview from "../Battle/PlayerPreview";
 
 describe("<Battle />", () => {
   afterEach(cleanup);
@@ -34,9 +37,9 @@ describe("<PlayerPreview />", () => {
 
   const requiredProps = {
     username: "Athos",
-    onReset: () => { },
-    label: "Greece"
-  }
+    onReset: () => {},
+    label: "Greece",
+  };
 
   it("Render component correctly", () => {
     expect(() => {

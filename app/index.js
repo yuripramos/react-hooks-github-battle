@@ -8,7 +8,7 @@ import Loading from "./components/Loading";
 import useAppHandler from "./useAppHandler";
 
 const Popular = lazy(() => import("./components/Popular"));
-const Battle = lazy(() => import("./components/Battle"));
+const Battle = lazy(() => import("./components/Battle/index"));
 const Results = lazy(() => import("./components/Results"));
 
 const App = () => {
