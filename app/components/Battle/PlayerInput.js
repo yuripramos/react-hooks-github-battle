@@ -1,20 +1,16 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { themeContext } from "../../contexts/theme";
+import usePlayerHandler from "./usePlayerHandler";
 
 export const PlayerInput = ({ onSubmit, label }) => {
-  const [username, setUsername] = useState("");
-  const theme = useContext(themeContext);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    onSubmit(username);
-  };
-
-  const handleChange = (event) => setUsername(event.target.value);
+  const { theme, handleSubmitUsername, handleChangeUsername, username } =
+    usePlayerHandler();
 
   return (
-    <form className="column player" onSubmit={handleSubmit}>
+    <form
+      className="column player"
+      onSubmit={(event) => handleSubmitUsername({ event, onSubmit })}
+    >
       <label htmlFor="username" className="player-label">
         {label}
       </label>
@@ -26,7 +22,7 @@ export const PlayerInput = ({ onSubmit, label }) => {
           placeholder="github username"
           autoComplete="off"
           value={username}
-          onChange={handleChange}
+          onChange={handleChangeUsername}
         />
         <button
           className={`btn ${theme === "dark" ? "light-btn" : "dark-btn"}`}

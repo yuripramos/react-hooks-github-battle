@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { FaTimesCircle } from "react-icons/fa";
 import PropTypes from "prop-types";
-import { themeContext } from "../../contexts/theme";
+import usePlayerHandler from "./usePlayerHandler";
 
 export function PlayerPreview({ username, onReset, label }) {
-  const theme = useContext(themeContext);
+  const { theme } = usePlayerHandler();
   return (
     <div className="column player">
       <h3 className="player-label">{label}</h3>

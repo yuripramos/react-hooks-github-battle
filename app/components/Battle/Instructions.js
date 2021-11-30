@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import { FaUserFriends, FaFighterJet, FaTrophy } from "react-icons/fa";
-import { themeContext } from "../../contexts/theme";
+import usePlayerHandler from "./usePlayerHandler";
 
 export function Instructions() {
-  const theme = useContext(themeContext);
+  const { theme } = usePlayerHandler();
   return (
     <div className="instructions-container">
       <h1 className="center-text header-lg">Instructions</h1>

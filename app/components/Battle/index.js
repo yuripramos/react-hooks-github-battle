@@ -3,21 +3,15 @@ import { Link } from "react-router-dom";
 import Instructions from "./Instructions";
 import PlayerInput from "./PlayerInput";
 import PlayerPreview from "./PlayerPreview";
+import usePlayerHandler from "./usePlayerHandler";
 
 export const Battle = () => {
-  const [playerOne, setPlayerOne] = useState(null);
-  const [playerTwo, setPlayerTwo] = useState(null);
-
-  const handleSubmit = (id, player) =>
-    id === "playerOne" ? setPlayerOne(player) : setPlayerTwo(player);
-
-  const handleReset = (id) =>
-    id === "playerOne" ? setPlayerOne(null) : setPlayerTwo(null);
+  const { handleReset, handleSubmit, playerOne, playerTwo } =
+    usePlayerHandler();
 
   return (
     <>
       <Instructions />
-      FOR REAL
       <div className="players-container">
         <h1 className="center-text header-lg">Players</h1>
         <div className="row space-around">
