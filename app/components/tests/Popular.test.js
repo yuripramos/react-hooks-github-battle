@@ -1,6 +1,8 @@
-import React from 'react';
-import { render, cleanup } from '@testing-library/react';
-import Popular, { LanguagesNav, ReposGrid } from '../Popular';
+import React from "react";
+import { render, cleanup } from "@testing-library/react";
+import Popular from "../Popular";
+import LanguagesNav from "../Popular/LanguagesNav";
+import ReposGrid from "../Popular/ReposGrid";
 
 describe("<Popular />", () => {
   afterEach(cleanup);
@@ -16,7 +18,7 @@ describe("<LanguagesNav />", () => {
   it("Render component correctly", () => {
     const requiredProps = {
       selected: "All",
-      onUpdateLanguage: () => { }
+      onUpdateLanguage: () => {},
     };
 
     expect(() => {
@@ -35,7 +37,7 @@ describe("<ReposGrid />", () => {
         html_url: "http://wwww.cactv.microsfot.com",
         stargazers_count: 21124,
         forks: 2214,
-        open_issues: 214
+        open_issues: 214,
       },
       {
         name: "How to travel the world",
@@ -43,10 +45,10 @@ describe("<ReposGrid />", () => {
         html_url: "http://wwww.cactv.microsfot.com",
         stargazers_count: 21124,
         forks: 2214,
-        open_issues: 200
-      }
-    ]
-  }
+        open_issues: 200,
+      },
+    ],
+  };
 
   it("Render component correctly", () => {
     expect(() => {

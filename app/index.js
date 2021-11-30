@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Loading from "./components/Loading";
 import useAppHandler from "./useAppHandler";
 
-const Popular = lazy(() => import("./components/Popular"));
+const Popular = lazy(() => import("./components/Popular/index"));
 const Battle = lazy(() => import("./components/Battle/index"));
 const Results = lazy(() => import("./components/Results"));
 
