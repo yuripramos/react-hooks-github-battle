@@ -1,31 +1,14 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { fetchPopularRepos } from "../../utils/api";
 import Loading from "../Loading";
-import { usePopularReducer } from "../../reducer/popular";
 import LanguagesNav from "./LanguagesNav";
 import ReposGrid from "./ReposGrid";
+import useFetchRepos from "./useFetchRepos";
 
 const Popular = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState("All");
-  const {
-    popularReducer: state,
-    setSuccessFetchItems,
-    setErrorFetchItems,
-  } = usePopularReducer();
+  const { selectedLanguage, setSelectedLanguage, state, isLoading } =
+    useFetchRepos();
 
-  const fetchedLanguages = useRef([]);
-
-  useEffect(() => {
-    if (fetchedLanguages.current.includes(selectedLanguage) === false) {
-      fetchedLanguages.current.push(selectedLanguage);
-
-      fetchPopularRepos(selectedLanguage)
-        .then((repos) => setSuccessFetchItems(selectedLanguage, repos))
-        .catch((e) => setErrorFetchItems(e));
-    }
-  }, [state, selectedLanguage]);
-
-  const isLoading = () => !state[selectedLanguage] && state.error === null;
   return (
     <>
       <LanguagesNav
