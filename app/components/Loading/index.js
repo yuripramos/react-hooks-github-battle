@@ -1,16 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-
-const styles = {
-  content: {
-    fontSize: "35px",
-    position: "absolute",
-    left: "0",
-    right: "0",
-    marginTop: "20px",
-    textAlign: "center",
-  },
-};
+import "./styles.css";
 
 const Loading = ({ text = "Loading", speed = 300 }) => {
   const [content, setContent] = useState(text);
@@ -23,7 +13,12 @@ const Loading = ({ text = "Loading", speed = 300 }) => {
 
     return () => window.clearInterval(id);
   }, [text, speed]);
-  return <p style={styles.content}>{content}</p>;
+  return (
+    <div className="ring">
+      {content}
+      <span></span>
+    </div>
+  );
 };
 
 Loading.propTypes = {
