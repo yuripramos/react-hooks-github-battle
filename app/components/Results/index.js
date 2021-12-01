@@ -1,8 +1,6 @@
-import React, { useEffect } from "react";
-import { battle } from "../../utils/api";
+import React from "react";
 import Card from "../Card";
 import Loading from "../Loading";
-import queryString from "query-string";
 import { Link } from "react-router-dom";
 import ProfileList from "./ProfileList";
 import useFetchBattle from "./useFetchBattle";

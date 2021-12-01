@@ -1,4 +1,4 @@
-import React, { useState, lazy } from "react";
+import React, { lazy } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import { ThemeProvider } from "./contexts/theme";

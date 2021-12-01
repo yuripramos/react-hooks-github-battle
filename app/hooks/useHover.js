@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 
 export default function useHover() {
   const [hovering, setHovering] = useState(false);
@@ -6,5 +6,5 @@ export default function useHover() {
   const onMouseOver = () => setHovering(true);
   const onMouseOut = () => setHovering(false);
 
-  return [hovering, { onMouseOver, onMouseOut }]
+  return [hovering, { onMouseOver, onMouseOut }];
 }
