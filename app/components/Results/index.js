@@ -4,23 +4,11 @@ import Card from "../Card";
 import Loading from "../Loading";
 import queryString from "query-string";
 import { Link } from "react-router-dom";
-import { useResultReducer } from "../../reducer/results";
 import ProfileList from "./ProfileList";
+import useFetchBattle from "./useFetchBattle";
 
 const Results = ({ location }) => {
-  const { playerOne, playerTwo } = queryString.parse(location.search);
-
-  const { resultReducer: state, setWinner, setError } = useResultReducer();
-
-  useEffect(() => {
-    battle([playerOne, playerTwo])
-      .then((players) => {
-        setWinner(players);
-      })
-      .catch(({ message }) => {
-        setError(message);
-      });
-  }, [playerOne, playerTwo]);
+  const { state } = useFetchBattle({ location });
 
   const { winner, loser, error, loading } = state;
 
