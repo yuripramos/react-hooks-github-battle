@@ -65,7 +65,8 @@
     "collectCoverage": true,
     "collectCoverageFrom": [
       "app/**/*.{js, ts,tsx, jsx}",
-      "!app/index.js"
+      "!app/index.js",
+      "!app/useAppHandler.js"
     ],
     "reporters": [
       "default"
