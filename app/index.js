@@ -9,7 +9,7 @@ import useAppHandler from "./useAppHandler";
 
 const Popular = lazy(() => import("./components/Popular/index"));
 const Battle = lazy(() => import("./components/Battle/index"));
-const Results = lazy(() => import("./components/Results"));
+const Results = lazy(() => import("./components/Results/index"));
 
 const App = () => {
   const { theme, toggleTheme } = useAppHandler();
