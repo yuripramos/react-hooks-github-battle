@@ -1,11 +1,10 @@
 import React from "react";
-import { render, cleanup } from "@testing-library/react";
-import Popular from "../Popular";
-import LanguagesNav from "../Popular/LanguagesNav";
-import ReposGrid from "../Popular/ReposGrid";
+import { render } from "@testing-library/react";
+import Popular from ".";
+import LanguagesNav from "./LanguagesNav";
+import ReposGrid from "./ReposGrid";
 
 describe("<Popular />", () => {
-  afterEach(cleanup);
   it("Render component correctly", () => {
     expect(() => {
       render(<Popular />);
@@ -14,7 +13,6 @@ describe("<Popular />", () => {
 });
 
 describe("<LanguagesNav />", () => {
-  afterEach(cleanup);
   it("Render component correctly", () => {
     const requiredProps = {
       selected: "All",
@@ -28,7 +26,6 @@ describe("<LanguagesNav />", () => {
 });
 
 describe("<ReposGrid />", () => {
-  afterEach(cleanup);
   const requiredProps = {
     repos: [
       {

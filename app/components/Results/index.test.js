@@ -1,14 +1,13 @@
-import React from 'react';
-import { render, cleanup } from '@testing-library/react';
-import Results, { ProfileList } from '../Results';
+import React from "react";
+import { render } from "@testing-library/react";
+import Results from "./index";
+import ProfileList from "./ProfileList";
 
 describe("<Results />", () => {
-  afterEach(cleanup);
-
   const requiredProps = {
     location: {
-      search: 'user-settings'
-    }
+      search: "user-settings",
+    },
   };
 
   it("Render component correctly", () => {
@@ -19,16 +18,14 @@ describe("<Results />", () => {
 });
 
 describe("<ProfileList />", () => {
-  afterEach(cleanup);
-
   const requiredProps = {
     profile: {
       name: "Yuri Ramos",
       location: "Barcelona, Spain",
-      company: "I work for myself",
+      company: "XYZ",
       followers: 125,
-      following: 10
-    }
+      following: 10,
+    },
   };
 
   it("Render component correctly", () => {
