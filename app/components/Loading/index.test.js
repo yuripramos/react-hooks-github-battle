@@ -1,6 +1,6 @@
-import React from 'react';
-import { render, cleanup } from '@testing-library/react';
-import Loading from '../Loading';
+import React from "react";
+import { render, cleanup } from "@testing-library/react";
+import Loading from "./index";
 
 describe("<Loading />", () => {
   afterEach(cleanup);

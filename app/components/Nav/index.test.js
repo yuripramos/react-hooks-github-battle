@@ -1,6 +1,6 @@
-import React from 'react';
-import { render, cleanup } from '@testing-library/react';
-import Nav from '../Nav';
+import React from "react";
+import { render, cleanup } from "@testing-library/react";
+import Nav from "./index";
 
 describe("<Nav />", () => {
   afterEach(cleanup);

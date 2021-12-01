@@ -1,6 +1,6 @@
-import React from 'react';
-import { render, cleanup } from '@testing-library/react';
-import Tooltip from '../Tooltip';
+import React from "react";
+import { render, cleanup } from "@testing-library/react";
+import Tooltip from "./index";
 
 describe("<Tooltip />", () => {
   afterEach(cleanup);
