@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Instructions from "./Instructions";
 import PlayerInput from "./PlayerInput";
 import PlayerPreview from "./PlayerPreview";
@@ -44,13 +44,9 @@ export const Battle = () => {
 
         {playerOne && playerTwo && (
           <Link
-            className="btn dark-btn btn-space"
-            to={{
-              pathname: "/battle/results",
-              search: `?playerOne=${playerOne}&playerTwo=${playerTwo}`,
-            }}
+            href={`/battle/results?playerOne=${playerOne}&playerTwo=${playerTwo}`}
           >
-            Battle
+            <span className="btn dark-btn btn-space"> Battle </span>
           </Link>
         )}
       </div>

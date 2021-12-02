@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import "./styles.css";
 
 const Loading = ({ text = "Loading", speed = 300 }) => {
   const [content, setContent] = useState(text);

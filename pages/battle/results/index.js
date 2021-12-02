@@ -1,12 +1,12 @@
 import React from "react";
-import Card from "../Card";
-import Loading from "../Loading";
-import { Link } from "react-router-dom";
+import Card from "../../../components/Card";
+import Loading from "../../../components/Loading";
+import Link from "next/link";
 import ProfileList from "./ProfileList";
 import useFetchBattle from "./useFetchBattle";
 
-const Results = ({ location }) => {
-  const { state } = useFetchBattle({ location });
+const Results = () => {
+  const { state } = useFetchBattle();
 
   const { winner, loser, error, loading } = state;
 
@@ -40,8 +40,8 @@ const Results = ({ location }) => {
           <ProfileList profile={loser.profile} />
         </Card>
       </div>
-      <Link to="/battle" className="btn dark-btn btn-space">
-        Reset
+      <Link href="/battle">
+        <span className="btn dark-btn btn-space"> Reset </span>
       </Link>
     </>
   );

@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
-import { fetchPopularRepos } from "../../utils/api";
-import Loading from "../Loading";
+import React from "react";
+import Loading from "../components/Loading";
 import LanguagesNav from "./LanguagesNav";
 import ReposGrid from "./ReposGrid";
 import useFetchRepos from "./useFetchRepos";

@@ -1,25 +1,21 @@
 import React, { useContext } from "react";
 import { themeContext } from "../../contexts/theme";
-import { NavLink } from "react-router-dom";
-
-const activeStyle = {
-  color: "rgb(187, 46, 31)",
-};
+import ActiveLink from "../ActiveLink";
 
 const Nav = ({ toggleTheme }) => {
   const theme = useContext(themeContext);
   return (
     <nav className="row space-between">
       <ul className="row nav">
-        <li>
-          <NavLink to="/" exact activeStyle={activeStyle} className="nav-link">
-            Popular
-          </NavLink>
+        <li className="nav-link">
+          <ActiveLink href="/" exact activeClassName="active-link">
+            <a className="link-href">Popular</a>
+          </ActiveLink>
         </li>
-        <li>
-          <NavLink to="/battle" activeStyle={activeStyle} className="nav-link">
-            Battle
-          </NavLink>
+        <li className="nav-link">
+          <ActiveLink href="/battle" activeClassName="active-link">
+            <a className="link-href">Battle</a>
+          </ActiveLink>
         </li>
       </ul>
       <button

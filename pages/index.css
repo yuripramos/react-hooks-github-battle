@@ -1,11 +1,14 @@
-html, body, #app {
+html,
+body,
+#app {
   margin: 0;
   height: 100%;
   width: 100%;
 }
 
 body {
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans,
+    Ubuntu, Cantarell, Helvetica Neue, sans-serif;
 }
 
 ul {
@@ -16,14 +19,23 @@ li {
   list-style-type: none;
 }
 
+.link-href {
+  color: #1c2022;
+}
+
+.dark .link-href {
+  color: #dadada;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  min-height: 100vh;
   padding: 50px;
 }
 
 .dark {
-  color: #DADADA;
+  color: #dadada;
   background: #1c2022;
   min-height: 100%;
 }
@@ -44,6 +56,9 @@ li {
   font-weight: bold;
   text-decoration: none;
   color: inherit;
+}
+.nav-link a {
+  text-decoration: none;
 }
 
 .nav li {
@@ -88,7 +103,6 @@ li {
 }
 
 .link {
-  color: rgb(187, 46, 31);
   text-decoration: none;
   font-weight: bold;
 }
@@ -148,7 +162,7 @@ li {
 
 .battle-instructions li {
   flex: 1;
-  min-width: 300px
+  min-width: 300px;
 }
 
 .battle-instructions svg {
@@ -199,7 +213,7 @@ li {
 .btn {
   padding: 10px;
   text-decoration: uppercase;
-  letter-spacing: .25em;
+  letter-spacing: 0.25em;
   border-radius: 3px;
   border: none;
   font-size: 16px;
@@ -259,7 +273,7 @@ li {
 }
 
 .player-inputs .input-dark {
-  color: #DADADA;
+  color: #dadada;
   background: rgba(0, 0, 0, 0.3);
 }
 
@@ -271,4 +285,86 @@ li {
 .light-btn:disabled {
   background: #292929;
   color: #4a4a4a;
+}
+
+.link-href.active-link {
+  color: #bb2e1f;
+}
+
+/*-------------------- MIGRATE TO STYLED-COMPONENTS - LOADING STYLING ----------------------*/
+
+.ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  background: transparent;
+  border: 3px solid #3c3c3c;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 150px;
+  font-family: sans-serif;
+  font-size: 20px;
+  color: #fff000;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px #fff000;
+}
+
+.ring:before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 100%;
+  height: 100%;
+  border: 3px solid transparent;
+  border-top: 3px solid #fff000;
+  border-right: 3px solid #fff000;
+  border-radius: 50%;
+  animation: animateC 2s linear infinite;
+}
+
+.ring > span {
+  display: block;
+  position: absolute;
+  top: calc(50% - 2px);
+  left: 50%;
+  width: 50%;
+  height: 4px;
+  background: transparent;
+  transform-origin: left;
+  animation: animate 2s linear infinite;
+}
+
+.ring > span:before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff000;
+  top: -6px;
+  right: -8px;
+  box-shadow: 0 0 20px #fff000;
+}
+
+@keyframes animateC {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
 }

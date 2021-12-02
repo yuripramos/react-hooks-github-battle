@@ -6,8 +6,8 @@ import {
   FaCodeBranch,
   FaExclamationTriangle,
 } from "react-icons/fa";
-import Card from "../Card";
-import Tooltip from "../Tooltip";
+import Card from "../components/Card";
+import Tooltip from "../components/Tooltip";
 
 const ReposGrid = ({ repos }) => {
   return (

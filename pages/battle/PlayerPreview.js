@@ -5,6 +5,7 @@ import usePlayerHandler from "./usePlayerHandler";
 
 export function PlayerPreview({ username, onReset, label }) {
   const { theme } = usePlayerHandler();
+
   return (
     <div className="column player">
       <h3 className="player-label">{label}</h3>

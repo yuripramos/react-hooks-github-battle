@@ -7,7 +7,7 @@ import {
   FaUser,
 } from "react-icons/fa";
 import PropTypes from "prop-types";
-import Tooltip from "../Tooltip";
+import Tooltip from "../../../components/Tooltip";
 
 const ProfileList = ({ profile }) => {
   return (

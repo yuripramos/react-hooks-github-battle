@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
-import { usePopularReducer } from "../../reducer/popular";
-import { fetchPopularRepos } from "../../utils/api";
+import { usePopularReducer } from "../reducer/popular";
+import { fetchPopularRepos } from "../utils/api";
 
 const useFetchRepos = () => {
   const [selectedLanguage, setSelectedLanguage] = useState("All");

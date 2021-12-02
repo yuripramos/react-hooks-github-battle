@@ -1,10 +1,12 @@
 import { useEffect } from "react";
-import { battle } from "../../utils/api";
-import queryString from "query-string";
-import { useResultReducer } from "../../reducer/results";
+import { battle } from "../../../utils/api";
+import { useResultReducer } from "../../../reducer/results";
+import { useRouter } from "next/router";
 
-const useFetchBattle = ({ location }) => {
-  const { playerOne, playerTwo } = queryString.parse(location.search);
+const useFetchBattle = () => {
+  const {
+    query: { playerOne, playerTwo },
+  } = useRouter();
 
   const { resultReducer: state, setWinner, setError } = useResultReducer();
 
