@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import React, { useState, useEffect } from 'react';
 
-const Loading = ({ text = "Loading", speed = 300 }) => {
+const Loading = ({ text = 'Loading', speed = 300 }: { text: string; speed?: number }) => {
   const [content, setContent] = useState(text);
   useEffect(() => {
     const id = window.setInterval(() => {
@@ -18,11 +17,6 @@ const Loading = ({ text = "Loading", speed = 300 }) => {
       <span></span>
     </div>
   );
-};
-
-Loading.propTypes = {
-  text: PropTypes.string,
-  speed: PropTypes.number,
 };
 
 export default Loading;

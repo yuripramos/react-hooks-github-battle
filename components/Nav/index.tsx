@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { themeContext } from "../../contexts/theme";
-import ActiveLink from "../ActiveLink";
+import React, { useContext } from 'react';
+import { themeContext } from '../../contexts/theme';
+import ActiveLink from '../ActiveLink';
 
-const Nav = ({ toggleTheme }) => {
+const Nav = ({ toggleTheme }: { toggleTheme: () => void }) => {
   const theme = useContext(themeContext);
   return (
     <nav className="row space-between">
@@ -18,12 +18,8 @@ const Nav = ({ toggleTheme }) => {
           </ActiveLink>
         </li>
       </ul>
-      <button
-        style={{ fontSize: 30 }}
-        className="btn-clear"
-        onClick={() => toggleTheme()}
-      >
-        {theme === "light" ? "🔦" : "💡"}
+      <button style={{ fontSize: 30 }} className="btn-clear" onClick={() => toggleTheme()}>
+        {theme === 'light' ? '🔦' : '💡'}
       </button>
     </nav>
   );

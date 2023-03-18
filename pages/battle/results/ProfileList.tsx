@@ -1,13 +1,6 @@
-import React from "react";
-import {
-  FaCompass,
-  FaBriefcase,
-  FaUsers,
-  FaUserFriends,
-  FaUser,
-} from "react-icons/fa";
-import PropTypes from "prop-types";
-import Tooltip from "../../../components/Tooltip";
+import React from 'react';
+import { FaCompass, FaBriefcase, FaUsers, FaUserFriends, FaUser } from 'react-icons/fa';
+import Tooltip from '../../../components/Tooltip';
 
 const ProfileList = ({ profile }) => {
   return (
@@ -42,10 +35,6 @@ const ProfileList = ({ profile }) => {
       </li>
     </ul>
   );
-};
-
-ProfileList.propTypes = {
-  profile: PropTypes.object.isRequired,
 };
 
 export default ProfileList;
