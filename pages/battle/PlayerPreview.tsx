@@ -1,9 +1,16 @@
-import React from "react";
-import { FaTimesCircle } from "react-icons/fa";
-import PropTypes from "prop-types";
-import usePlayerHandler from "./usePlayerHandler";
+import React, { MouseEventHandler } from 'react';
+import { FaTimesCircle } from 'react-icons/fa';
+import usePlayerHandler from './usePlayerHandler';
 
-export function PlayerPreview({ username, onReset, label }) {
+export function PlayerPreview({
+  username,
+  onReset,
+  label,
+}: {
+  username: string;
+  onReset: (username: string) => void;
+  label: string;
+}) {
   const { theme } = usePlayerHandler();
 
   return (
@@ -20,18 +27,12 @@ export function PlayerPreview({ username, onReset, label }) {
             {username}
           </a>
         </div>
-        <button className="btn-clear flex-center" onClick={onReset}>
+        <button className="btn-clear flex-center" onClick={onReset as any}>
           <FaTimesCircle color="rgb(194, 57, 42)" size={26} />
         </button>
       </div>
     </div>
   );
 }
-
-PlayerPreview.propTypes = {
-  username: PropTypes.string.isRequired,
-  onReset: PropTypes.func.isRequired,
-  label: PropTypes.string.isRequired,
-};
 
 export default PlayerPreview;

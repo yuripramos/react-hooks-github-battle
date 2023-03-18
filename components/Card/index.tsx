@@ -1,8 +1,16 @@
-import React, { useContext } from "react";
-import PropTypes from "prop-types";
-import { themeContext } from "../../contexts/theme";
+import React, { useContext } from 'react';
+import { themeContext } from '../../contexts/theme';
 
-const Card = ({ header, subheader, avatar, href, name, children }) => {
+type cardType = {
+  header: string;
+  subheader?: string;
+  avatar: string;
+  href: string;
+  name: string;
+  children: React.ReactNode;
+};
+
+const Card = ({ header, subheader, avatar, href, name, children }: cardType) => {
   const theme = useContext(themeContext);
   return (
     <div className={`card bg-${theme}`}>
@@ -17,14 +25,6 @@ const Card = ({ header, subheader, avatar, href, name, children }) => {
       {children}
     </div>
   );
-};
-
-Card.propTypes = {
-  header: PropTypes.string.isRequired,
-  subheader: PropTypes.string,
-  avatar: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
 };
 
 export default Card;

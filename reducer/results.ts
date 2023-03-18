@@ -1,15 +1,19 @@
-import { useReducer } from "react";
+import { useReducer } from 'react';
 
-const stateReducer = (state, action) => {
+type Actions =
+  | { type: 'SUCCESS'; winner: string; loser: string; error?: null; loading?: boolean }
+  | { type: 'ERROR'; message: Error; loading?: boolean };
+
+const stateReducer = (state: any, action: Actions) => {
   switch (action.type) {
-    case "SUCCESS":
+    case 'SUCCESS':
       return {
         winner: action.winner,
         loser: action.loser,
         error: null,
         loading: false,
       };
-    case "ERROR":
+    case 'ERROR':
       return {
         ...state,
         error: action.message,
@@ -30,10 +34,9 @@ const defaultState = {
 export const useResultReducer = () => {
   const [resultReducer, dispatch] = useReducer(stateReducer, defaultState);
 
-  const setWinner = (players) =>
-    dispatch({ type: "SUCCESS", winner: players[0], loser: players[1] });
+  const setWinner = (players) => dispatch({ type: 'SUCCESS', winner: players[0], loser: players[1] });
 
-  const setError = (message) => dispatch({ type: "ERROR", message });
+  const setError = (message) => dispatch({ type: 'ERROR', message });
 
   return { resultReducer, setWinner, setError };
 };

@@ -1,17 +1,13 @@
-import { useEffect, useState, useRef } from "react";
-import { usePopularReducer } from "../reducer/popular";
-import { fetchPopularRepos } from "../utils/api";
+import { useEffect, useState, useRef } from 'react';
+import { usePopularReducer } from '../reducer/popular';
+import { fetchPopularRepos } from '../utils/api';
 
 const useFetchRepos = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState("All");
+  const [selectedLanguage, setSelectedLanguage] = useState<string>('All');
 
-  const {
-    popularReducer: state,
-    setSuccessFetchItems,
-    setErrorFetchItems,
-  } = usePopularReducer();
+  const { popularReducer: state, setSuccessFetchItems, setErrorFetchItems } = usePopularReducer();
 
-  const fetchedLanguages = useRef([]);
+  const fetchedLanguages = useRef<any[]>([]);
 
   const isLoading = () => !state[selectedLanguage] && state.error === null;
 
@@ -21,7 +17,7 @@ const useFetchRepos = () => {
 
       fetchPopularRepos(selectedLanguage)
         .then((repos) => setSuccessFetchItems(selectedLanguage, repos))
-        .catch((e) => setErrorFetchItems(e));
+        .catch((e: Error) => setErrorFetchItems(e));
     }
   }, [state, selectedLanguage]);
 

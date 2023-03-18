@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const themeContext = React.createContext();
+const themeContext = React.createContext({});
 
 const Provider = themeContext.Provider;
 

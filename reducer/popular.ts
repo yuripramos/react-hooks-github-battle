@@ -1,14 +1,16 @@
-import { useReducer } from "react";
+import { useReducer } from 'react';
 
-function stateReducer(state, action) {
+type Actions = { type: 'SUCCESS'; selectedLanguage: string; repos: any[] } | { type: 'ERROR'; error: Error };
+
+function stateReducer(state: any, action: Actions) {
   switch (action.type) {
-    case "SUCCESS":
+    case 'SUCCESS':
       return {
         ...state,
         [action.selectedLanguage]: action.repos,
         error: null,
       };
-    case "ERROR":
+    case 'ERROR':
       return {
         ...state,
         error: action.error.message,
@@ -25,10 +27,9 @@ const defaultState = {
 export const usePopularReducer = () => {
   const [popularReducer, dispatch] = useReducer(stateReducer, defaultState);
 
-  const setSuccessFetchItems = (selectedLanguage, repos) =>
-    dispatch({ type: "SUCCESS", selectedLanguage, repos });
+  const setSuccessFetchItems = (selectedLanguage, repos) => dispatch({ type: 'SUCCESS', selectedLanguage, repos });
 
-  const setErrorFetchItems = (error) => dispatch({ type: "ERROR", error });
+  const setErrorFetchItems = (error) => dispatch({ type: 'ERROR', error });
 
   return { popularReducer, setSuccessFetchItems, setErrorFetchItems };
 };

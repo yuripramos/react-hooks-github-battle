@@ -1,30 +1,30 @@
-import React from "react";
-import PropTypes from "prop-types";
-import {
-  FaUser,
-  FaStar,
-  FaCodeBranch,
-  FaExclamationTriangle,
-} from "react-icons/fa";
-import Card from "../components/Card";
-import Tooltip from "../components/Tooltip";
+import React from 'react';
+import { FaUser, FaStar, FaCodeBranch, FaExclamationTriangle } from 'react-icons/fa';
+import Card from '../components/Card';
+import Tooltip from '../components/Tooltip';
 
-const ReposGrid = ({ repos }) => {
+type reposType = {
+  name: string;
+  owner: {
+    login: string;
+    avatar_url: string;
+  };
+  html_url: string;
+  stargazers_count: number;
+  forks: number;
+  open_issues: number;
+};
+
+const ReposGrid = ({ repos }: { repos: reposType[] }) => {
   return (
     <ul className="grid space-around">
       {repos.map((repo, index) => {
-        const { name, owner, html_url, stargazers_count, forks, open_issues } =
-          repo;
+        const { name, owner, html_url, stargazers_count, forks, open_issues } = repo;
         const { login, avatar_url } = owner;
 
         return (
           <li key={html_url}>
-            <Card
-              header={`#${index + 1}`}
-              avatar={avatar_url}
-              href={html_url}
-              name={login}
-            >
+            <Card header={`#${index + 1}`} avatar={avatar_url} href={html_url} name={login}>
               <ul className="card-list">
                 <li>
                   <Tooltip text="Github username">
@@ -51,10 +51,6 @@ const ReposGrid = ({ repos }) => {
       })}
     </ul>
   );
-};
-
-ReposGrid.propTypes = {
-  repos: PropTypes.array.isRequired,
 };
 
 export default ReposGrid;
